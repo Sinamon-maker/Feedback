@@ -18,7 +18,7 @@
 2. Run project in Dev mode
 
   ```shell
-  $ yarn run dev
+  $ yarn run dev:watch
   ```
 
 ## Features
@@ -55,7 +55,7 @@ Installs the dependencies.
 #### Development
 
 ```Shell
-yarn run dev
+yarn run dev:watch:
 ```
 
 Starts the development server running on `http://localhost:3080` using the webpack.dev.config.js with Hot Module Replacement (HMR) (Changes in the application code will be hot-reloaded)
