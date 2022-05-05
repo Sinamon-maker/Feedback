@@ -36,6 +36,36 @@ h1{
   padding:0;
 
 }
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+input,
+textarea {
+  outline: none;
+  border: none;
+
+  &::placeholder {
+    color: #2D2D2D;
+    font-family: 'Apercu';
+    font-size: 18px;
+    font-weight:400;
+    line-height: 180%;
+
+  }
+}
+
+
 `
 
 ReactDOM.render(

@@ -4,17 +4,15 @@ import picture from '../images/Captura.png'
 import IconFone from './iconfone'
 
 const PictureWrapper = styled.div`
-display:none;
+  display: none;
 
-
-@media(min-width:768px){
-  display:block;
-object-fit: fill;
-  position: relative;
-  wight: 50%;
-  overflow: hidden;
-}
-
+  @media (min-width: 768px) {
+    display: block;
+    object-fit: fill;
+    position: relative;
+    wight: 50%;
+    overflow: hidden;
+  }
 `
 
 const Img = styled.img`

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import {  useDispatch } from "react-redux";
-import { sendMessage } from "../redux/reducers/message";
+import { useDispatch } from 'react-redux'
+import { sendMessage } from '../redux/reducers/message'
 import styled from 'styled-components'
 import Input from './input'
 import Textarea from './textarea'
@@ -19,27 +19,28 @@ const HeadingWrapper = styled.h1`
 `
 
 const FormComponent = () => {
-
- const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
-  const onChange = (e) => {
-        const newValue = e.target.value
+  const disabled = Boolean(name&&email&&message)
+
+const onChange = (e) => {
+    const newValue = e.target.value
     if (e.target.name === 'name') setName(newValue)
     if (e.target.name === 'email') setEmail(newValue)
     if (e.target.name === 'message') setMessage(newValue)
   }
 
   const onSubmit = (e) => {
-     e.preventDefault()
-      const messageObj = {name, email, message}
-     dispatch(sendMessage(messageObj))
-     setName("")
-   setEmail("")
-    setMessage("")
+    e.preventDefault()
+    const messageObj = { name, email, message }
+    dispatch(sendMessage(messageObj))
+    setName('')
+    setEmail('')
+    setMessage('')
   }
 
   return (
@@ -63,7 +64,7 @@ const FormComponent = () => {
         value={message}
         onChange={onChange}
       />
-      <Button>Press me</Button>
+      <Button disabled = {disabled}>Press me</Button>
     </FormComponentWrapper>
   )
 }

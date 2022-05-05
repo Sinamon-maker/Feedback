@@ -33,7 +33,6 @@ export function sendMessage(message) {
 }
 
 export async function receiveMessageRequested(messageObject) {
-  console.log('code')
   const result = await axios
     .post('http://localhost:3000/messages', messageObject)
     .then(({ data }) => {
