@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import phone from './phone'
+import message from './message'
 
 const createRootReducer = () => combineReducers({
-  phone
+  message
 })
 
 export default createRootReducer

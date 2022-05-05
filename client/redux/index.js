@@ -1,6 +1,5 @@
 import { createStore, applyMiddleware, compose } from "redux"
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { io } from "socket.io-client";
 import CreateSagaMiddleware from 'redux-saga'
  import thunk from 'redux-thunk'
 import createRootReducer from './reducers'
@@ -16,22 +15,6 @@ const store = createStore(createRootReducer(), initialState, composedEnchanters)
 
 saga.run(sagaWatcher)
 
-const socket = io('/');
 
-socket.on("connect", () => {
-
-  console.log("hi", );
-
-
- });
-
-socket.on('action', function (data) {
-  console.log('connected');
- store.dispatch(data)
-})
-
-export function getSocket(){
-  return socket
-}
 
 export default store

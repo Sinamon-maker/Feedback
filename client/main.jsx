@@ -1,12 +1,47 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import "./main.scss";
-import Root from "./components/Root";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import store from './redux'
+import { createGlobalStyle } from 'styled-components'
+import ApercuWoff from './Fonts/ApercuArabicPro-Regular.woff'
+import ApercuWoff2 from './Fonts/ApercuArabicPro-Regular.woff2'
+
+import App from './components/App'
+
+const Global = createGlobalStyle`
+@fant-face {
+  font-family: 'Apercu';
+  src: url(${ApercuWoff}) format ('woff'),
+  url(${ApercuWoff2}) format ('woff2');
+  font-size: 30px;
+
+body{
+  background: black;
+   margin:0;
+  padding:0;
+  min-height: 100vh;
+
+}
+div{
+  font-family: 'Apercu'
+}
+h1{
+ font-family: 'Apercu';
+ font-weight: 400;
+}
+}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+
+}
+`
 
 ReactDOM.render(
-  <Router>
-    <Root />
-  </Router>,
-  document.getElementById("root")
-);
+  <Provider store={store}>
+    <Global />
+    <App />
+  </Provider>,
+  document.getElementById('root'),
+)

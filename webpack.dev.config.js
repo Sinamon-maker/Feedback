@@ -43,30 +43,32 @@ const config = {
         loaders: ['babel-loader'],
         exclude: /node_modules/
       },
-      {
-        test: /\.scss$/,
-        loaders: [
-          {
-            loader: MiniCSSExtractPlugin.loader,
-            options: {
-              publicPath: '../',
-            },
-          },
-          'css-loader',
-          'sass-loader',
-        ],
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.svg$/,
+      {test: /\.(woff|woff2|ttf|eot)$/,
+      use:[{
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          mimetype:'application/octet-stream'
+        }
+      }]
+    },
+{
+        test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
-            loader: 'svg-url-loader',
-            options: {
-              limit: 10000,
-            },
+            loader: 'file-loader',
           },
         ],
+      },
+      {
+        test: /\.svg/,
+        use:
+          {
+            loader: 'svg-url-loader',
+options: {
+          limit: 10000,
+          },
+        }
       },
     ],
   },
@@ -80,6 +82,19 @@ const config = {
         {
           from: `${__dirname}/client/index.html`,
           to: 'index.html'
+        },
+        {
+          from:`${__dirname}/client/Icons`,
+          to:'Icons',
+        },
+          {
+          from:`${__dirname}/client/Fonts`,
+          to:'Fonts',
+        },
+
+          {
+          from:`${__dirname}/client/images`,
+          to:'Images',
         }
       ]
     })
